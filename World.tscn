@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://c7rb674a6sse0"]
+
+[ext_resource type="PackedScene" uid="uid://ia0b1iom1yak" path="res://Stages/TestStage/TestStage.tscn" id="1_7r14d"]
+[ext_resource type="PackedScene" uid="uid://dhtnu61kikv3s" path="res://Characters/Kenneth/Kenneth.tscn" id="2_x7vw1"]
+
+[node name="World" type="Node2D"]
+
+[node name="TestStage" parent="." instance=ExtResource("1_7r14d")]
+
+[node name="Kenneth" parent="TestStage" instance=ExtResource("2_x7vw1")]
+position = Vector2(300, 532)

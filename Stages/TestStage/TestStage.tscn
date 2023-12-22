@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://ia0b1iom1yak"]
+
+[ext_resource type="Texture2D" uid="uid://sokkyre4ebfv" path="res://Stages/TestStage/gillbg03.png" id="1_e5pqt"]
+
+[node name="TestStage" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(576, 612)
+scale = Vector2(1.125, 1.125)
+texture = ExtResource("1_e5pqt")
