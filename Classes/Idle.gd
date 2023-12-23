@@ -8,8 +8,10 @@ extends State
 class_name Idle
 
 func enter():
+	animator.stop(true)
 	animator.play("Idle")
-	pass
+
+
 
 func update(delta):
 	pass

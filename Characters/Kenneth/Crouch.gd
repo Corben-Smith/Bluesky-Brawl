@@ -1,13 +1,13 @@
 extends State
-class_name WalkForward
+class_name Crouch
 
 # Called when the node enters the scene tree for the first time.
 func enter():
-	animator.stop()
-	animator.play("WalkForward")
+	animator.play("IntoCrouch")
+	animator.queue("Crouched")
 
 func physics_update(_delta):
-	velocity = Vector2(100,0)
+	pass
 
 func exit():
-	pass
+	animator.queue("OutCrouch")

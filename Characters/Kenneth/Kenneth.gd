@@ -12,18 +12,24 @@ func _process(delta):
 		Input.get_action_strength("Down") - Input.get_action_strength("Up")
 	)
 	
-	if input_direction.x < 0 && Machine.current_state.name.to_lower() == "idle":
-		print_debug("Wal")
-		Machine.change_state("walkforward")
-	elif input_direction.x > 0 && Machine.current_state.name.to_lower() == "idle":
-		print_debug("Wal")
-		Machine.change_state("walkbackward")
-	elif input_direction == Vector2.ZERO && Machine.current_state.name.to_lower() != "idle":
-		Machine.change_state("idle")
+	var desired_state: String = ""
+	if input_direction.x < 0:
+		desired_state = "WalkForward"
+	elif input_direction.x > 0 :
+		desired_state = "WalkBackward"
+	elif input_direction.y > 0 :
+		desired_state = "Crouch"
+	elif Input.is_action_just_pressed("Light"):
+		desired_state = "NLight"
+	elif input_direction.x == 0:
+		desired_state = "Idle"
+		
+	
+	if desired_state.to_lower() != Machine.current_state.name.to_lower():
+		Machine.change_state(desired_state)
 
 func _physics_process(delta):
 	print_debug(Machine.current_state.name)
 	if Machine:
-		print_debug(Machine.velocity)
 		velocity = Machine.velocity
 	move_and_slide()
